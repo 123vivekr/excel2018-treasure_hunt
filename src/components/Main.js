@@ -3,6 +3,7 @@ import Sidebar from './Sidebar';
 import '../css/Main.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import GoogleButton from 'react-google-button'
 
 class Main extends Component {
   constructor(props) {
@@ -28,7 +29,9 @@ class Main extends Component {
           <img id='logo' src="http://excelmec.org/partners/img/excel2018.14bdbf062ab3f85e249a4d31cd4f0584.png"/>
         </div>
         <div className="btn">
-        <button className="btnGoogle" >Log in with Google</button>
+        <GoogleButton
+          onClick={() => { console.log('Google button clicked') }}
+        />
         </div>
       </div>
     );
