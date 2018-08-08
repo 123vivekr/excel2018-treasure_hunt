@@ -7,12 +7,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Router>
-          <div>
-            <Route exact path="/" component={ Login } />
-            <Route exact path="/main" component={ Main } />
-          </div>
-        </Router>
+        <div>
+          <Route exact path="/" component={ Login } />
+          <Route exact path="/main" component={ Main } />
+        </div>
+      </Router>
     );
   }
 }
