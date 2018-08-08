@@ -21,6 +21,13 @@ class Main extends Component {
     });
   };
  
+  challenges = () => {
+    return(
+      <div id="challengecard">
+      </div>   
+    )
+   
+  }
 
   authenticate = () => {
     return(
@@ -45,7 +52,8 @@ class Main extends Component {
           <Sidebar page={ "login" } />
         </div>
         <div className="mainbox">
-            {this.authenticate()}
+          { this.challenges() }
+          {/* {this.authenticate()} */}
         </div>
       </div>
     );
