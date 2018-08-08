@@ -25,9 +25,14 @@ class Main extends Component {
   authenticate = () => {
     return(
       <div id="logincard">
+        <div id="logodiv">
+          <img id='logo' src="http://excelmec.org/partners/img/excel2018.14bdbf062ab3f85e249a4d31cd4f0584.png"/>
+        </div>
+        <div className="btn">
         <GoogleButton
           onClick={() => { console.log('Google button clicked') }}
         />
+        </div>
       </div>
     );
   }
