@@ -4,7 +4,22 @@ import '../css/Main.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-class Login extends Component {
+class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authStatus: false,
+      name: '',
+      email: '',
+    };
+  }
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+ 
 
   authenticate = () => {
     return(
@@ -24,7 +39,7 @@ class Login extends Component {
             label="Email"
             className='email'
             // value={'Email'}
-            // onChange={this.handleChange('name')}
+            onChange={this.handleChange('email')}
             fullWidth
             margin="normal"
           />
@@ -33,7 +48,7 @@ class Login extends Component {
             id="pass"
             label="Passowrd"
             // value={this.state.name}
-            // onChange={this.handleChange('name')}
+            onChange={this.handleChange('pass')}
             fullWidth
             margin="normal"
           />
@@ -50,8 +65,8 @@ class Login extends Component {
     );
   }
 
-  qustions
   render() {
+    
     return (
       <div className="Login">
         <div className="sidebar">
@@ -65,4 +80,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Main;
