@@ -25,41 +25,10 @@ class Main extends Component {
     return(
       <div id="logincard">
         <div id="logodiv">
-          <br />
-          <br />
-          <br />
-          <br />
           <img id='logo' src="http://excelmec.org/partners/img/excel2018.14bdbf062ab3f85e249a4d31cd4f0584.png"/>
         </div>
-        <br />
-        <br />
-        <div id="authentication">
-          <TextField
-            id="email"
-            label="Email"
-            className='email'
-            // value={'Email'}
-            onChange={this.handleChange('email')}
-            fullWidth
-            margin="normal"
-          />
-          <br />
-          <TextField
-            id="pass"
-            label="Passowrd"
-            // value={this.state.name}
-            onChange={this.handleChange('pass')}
-            fullWidth
-            margin="normal"
-          />
-          <br />
-          <br />
-          <br />
-          <center>
-          <Button color="primary"  variant="contained">
-            Log In
-          </Button> 
-          </center>
+        <div className="btn">
+        <button className="btnGoogle" >Log in with Google</button>
         </div>
       </div>
     );
