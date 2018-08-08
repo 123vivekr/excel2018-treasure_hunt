@@ -1,37 +1,48 @@
 .Login {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 2fr 7fr;
     height: 100vh;
+    width: 100%;
 }
 .sidebar {
-    background-color: green;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .mainbox {
-    background: red;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 7fr 1fr;
+    background-color: #00173D;
+    /* background: url('../assets/chest.jpg'); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #logincard {
-    grid-column: 2;
-    grid-row: 2;
-    background: yellow;
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
-    grid-template-rows: 3fr 2fr;
+    height: 85%;
+    width: 30vw;
+    background-color: white;
+    /* background: yellow; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
 }
 #logodiv {
-    grid-row: 1;
-    grid-column: 2;
+   /* background-color: tomato; */
+   flex-basis: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 #logo {
-    max-width:300px;
-    max-height:300px;
+    max-width:200px;
+    max-height:200px;
     /* background: black; */
 }
-#authentication {
-    grid-row: 2;
-    grid-column: 2;
-    /* background: black; */
-    
+.btn{
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnGoogle{
+
 }
