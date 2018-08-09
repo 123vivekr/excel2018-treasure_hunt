@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import '../css/Sidebar.css';
+import sherlock from '../assets/sherlock2.jpg';
 
 class Sidebar extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="sidebar">
         <div className="sherlock">
-          
+          <img src={sherlock} style={{backgroundSize:"cover"}}/>
         </div>
       </div>
     );
