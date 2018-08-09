@@ -1,0 +1,11 @@
+.sidebar{
+    /* position: relative; */
+    background-color: teal;
+}
+
+.sherlock{
+    /* position: absolute; */
+    height: 60%;
+    width: 100%;
+    background-color: tomato;
+}

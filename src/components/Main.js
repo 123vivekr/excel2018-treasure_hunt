@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from './Sidebar';
 import '../css/Main.css';
+import '../css/Sidebar.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import GoogleButton from 'react-google-button'
