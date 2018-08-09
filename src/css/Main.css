@@ -7,7 +7,7 @@
 }
 
 .mainbox {
-  background-color: #1c1c1c;
+  background-color: #371111;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@
   height: 90%;
   margin-left: 20px;
   width: 70vw;
-  background-color: white;
+  background-color: #ffffff4f;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   flex-direction: column;

@@ -102,8 +102,8 @@ class Main extends Component {
           <Sidebar page={"login"} />
         </div>
         <div className="mainbox">
-          {/* {this.challenges()} */}
-          {this.authenticate()}
+          {this.challenges()}
+          {/* {this.authenticate()} */}
         </div>
       </div>
     );
