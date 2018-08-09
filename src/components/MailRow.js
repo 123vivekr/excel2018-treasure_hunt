@@ -4,7 +4,6 @@ import "../css/MailStyles.css";
 
 const styles = {
   mailRow: {
-    width: "100%",
     backgroundColor: "rgba(0,0,0,0.87)",
     height: "50px",
     display: "flex",

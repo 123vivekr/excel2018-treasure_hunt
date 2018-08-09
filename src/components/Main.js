@@ -62,10 +62,12 @@ class Main extends Component {
         <MailTemplate
           title={mail.mailHeader.title}
           timestamp={mail.mailHeader.timestamp}
-          content={mail.mailList.mailBody.content}
+          content={mail.mailBody.content}
         />
       );
     });
+
+    return <div id="challengecard">{mails}</div>;
   };
 
   authenticate = () => {
@@ -97,9 +99,9 @@ class Main extends Component {
           <Sidebar page={"login"} />
         </div>
         <div className="mainbox">
-          {this.challenges()}
+          {/* {this.challenges()} */}
           {/* {this.authenticate()} */}
-          {/* {this.viewmail()} */}
+          {this.viewmail()}
         </div>
       </div>
     );
