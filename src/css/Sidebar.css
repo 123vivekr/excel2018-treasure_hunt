@@ -7,12 +7,15 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
 }
 .sherlock {
   position: absolute;
-  height: 60%;
+  height: auto;
   width: 100%;
-  /* margin-left: 2em; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* background: url('../assets/sherlock2.jpg'); */
   /* background-color: tomato; */
 }
