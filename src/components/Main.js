@@ -32,6 +32,8 @@ class Main extends Component {
   authenticate = () => {
     return(
       <div id="logincard">
+      <div className="design1 design"></div>
+      <div className="design2 design"></div>
         <div id="logodiv">
           <img id='logo' src="http://excelmec.org/partners/img/excel2018.14bdbf062ab3f85e249a4d31cd4f0584.png"/>
         </div>
@@ -52,8 +54,8 @@ class Main extends Component {
           <Sidebar page={ "login" } />
         </div>
         <div className="mainbox">
-          { this.challenges() }
-          {/* {this.authenticate()} */}
+          {/* { this.challenges() } */}
+          {this.authenticate()}
         </div>
       </div>
     );
