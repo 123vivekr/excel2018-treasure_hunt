@@ -1,8 +1,9 @@
 .Login {
   display: grid;
-  grid-template-columns: 2fr 7fr;
+  grid-template-columns: 3fr 8fr;
   height: 100vh;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .mainbox {
@@ -45,9 +46,6 @@
   align-items: center;
   z-index: 1;
 }
-
-
-
 
 #challengecard {
   height: 90%;

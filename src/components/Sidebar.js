@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import '../css/Sidebar.css';
-import sherlock from '../assets/sherlock2.jpg';
+import React, { Component } from "react";
+import "../css/Sidebar.css";
+import sherlock from "../assets/sherDone.png";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
         <div className="sherlock">
-          <img src={sherlock} style={{backgroundSize:"cover"}}/>
+          <img src={sherlock} style={{ backgroundSize: "cover" }} />
         </div>
       </div>
     );
