@@ -1,4 +1,22 @@
-mailIcon {
-  height: 100px;
-  width: 100px;
+.mailRow {
+  background-color: rgba(0, 0, 0, 0.87);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0px 24px 0px 24px;
+  margin: 4px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.title {
+  color: yellow;
+  overflow: hidden;
+}
+
+.timestamp {
+  font-weight: 700;
+  overflow: hidden;
 }

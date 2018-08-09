@@ -12,7 +12,8 @@ const styles = {
     color: "rgba(255,255,255,0.87)",
     padding: "0px 24px 0px 24px",
     margin: "4px",
-    borderRadius: "15px"
+    borderRadius: "15px",
+    cursor: "pointer"
   },
   title: {
     color: "yellow",
@@ -33,9 +34,9 @@ class MailRow extends Component {
   render() {
     const { title, timestamp, index, onClick } = this.props;
     return (
-      <div style={styles.mailRow} onClick={onClick(index)}>
-        <span style={styles.title}>{title}</span>
-        <span style={styles.timestamp}>{timestamp}</span>
+      <div className="mailRow" onClick={onClick(index)}>
+        <span className="title">{title}</span>
+        <span className="timestamp">{timestamp}</span>
       </div>
     );
   }
