@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import GoogleButton from "react-google-button";
 import MailRow from "./MailRow";
+import MailTemplate from "./MailTemplate";
 
 class Main extends Component {
   constructor(props) {
@@ -55,6 +56,18 @@ class Main extends Component {
     return <div id="challengecard">{mails}</div>;
   };
 
+  viewmail = () => {
+    const mails = this.state.mailList.map(mail => {
+      return (
+        <MailTemplate
+          title={mail.mailHeader.title}
+          timestamp={mail.mailHeader.timestamp}
+          content={mail.mailList.mailBody.content}
+        />
+      );
+    });
+  };
+
   authenticate = () => {
     return (
       <div id="logincard">
@@ -86,6 +99,7 @@ class Main extends Component {
         <div className="mainbox">
           {this.challenges()}
           {/* {this.authenticate()} */}
+          {/* {this.viewmail()} */}
         </div>
       </div>
     );

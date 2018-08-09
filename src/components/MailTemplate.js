@@ -30,7 +30,7 @@ class MailTemplate extends Component {
   }
 
   render() {
-    const { title, timestamp } = this.props;
+    const { title, timestamp, content } = this.props;
     return (
       <div style={styles.mailRow}>
         <span style={styles.title}>{title}</span>
