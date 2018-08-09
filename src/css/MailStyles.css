@@ -1,4 +1,61 @@
-mailIcon {
-  height: 100px;
-  width: 100px;
+.mailRow {
+  background-color: rgba(0, 0, 0, 0.87);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0px 24px 0px 24px;
+  margin: 4px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.mailRow :hover {
+  box-shadow: 50px black;
+}
+
+.title {
+  color: yellow;
+  overflow: hidden;
+}
+
+.timestamp {
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.mailDiv {
+  background-color: "rgba(0;0;0;0.87)";
+  height: 50px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.87);
+  padding-left: 24px;
+  padding-right: 24px;
+  margin: 4px;
+  border-radius: 15px;
+}
+
+.expandedtitle {
+  color: yellow;
+  overflow: hidden;
+  padding: 4px;
+  padding-top: 16px;
+}
+
+.expandedtimestamp {
+  font-weight: 700;
+  padding: 4px;
+}
+
+.content {
+  flex: 1;
+  padding: 4px;
+}
+
+.fullWidth {
+  width: 100%;
 }
