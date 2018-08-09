@@ -7,12 +7,12 @@
   color: rgba(255, 255, 255, 0.87);
   padding: 0px 24px 0px 24px;
   margin: 4px;
-  border-radius: 15px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.mailRow :hover {
-  box-shadow: 50px black;
+.mailRow:hover {
+  box-shadow: 5px 5px 5px rgb(150, 150, 150);
 }
 
 .title {
@@ -36,7 +36,7 @@
   padding-left: 24px;
   padding-right: 24px;
   margin: 4px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .expandedtitle {
