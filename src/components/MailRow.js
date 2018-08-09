@@ -29,9 +29,9 @@ class MailRow extends Component {
   }
 
   render() {
-    const { title, timestamp } = this.props;
+    const { title, timestamp, index, onClick } = this.props;
     return (
-      <div style={styles.mailRow}>
+      <div style={styles.mailRow} onClick={onClick(index)}>
         <span style={styles.title}>{title}</span>
         <span style={styles.timestamp}>{timestamp}</span>
       </div>

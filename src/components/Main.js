@@ -49,6 +49,8 @@ class Main extends Component {
         <MailRow
           title={mail.mailHeader.title}
           timestamp={mail.mailHeader.timestamp}
+          onClick={this.expandMail}
+          index={this.state.mailList.indexOf(mail)}
         />
       );
     });
@@ -56,18 +58,19 @@ class Main extends Component {
     return <div id="challengecard">{mails}</div>;
   };
 
-  viewmail = () => {
-    const mails = this.state.mailList.map(mail => {
-      return (
-        <MailTemplate
-          title={mail.mailHeader.title}
-          timestamp={mail.mailHeader.timestamp}
-          content={mail.mailBody.content}
-        />
-      );
-    });
+  viewmail = index => {
+    const mail = this.state.mailList[index];
+    return (
+      <MailTemplate
+        title={mail.mailHeader.title}
+        timestamp={mail.mailHeader.timestamp}
+        content={mail.mailBody.content}
+      />
+    );
+  };
 
-    return <div id="challengecard">{mails}</div>;
+  expandMail = index => {
+    //ASWIN M PRABHU DO ONLY HERE
   };
 
   authenticate = () => {
@@ -99,9 +102,8 @@ class Main extends Component {
           <Sidebar page={"login"} />
         </div>
         <div className="mainbox">
-          {/* {this.challenges()} */}
+          {this.challenges()}
           {/* {this.authenticate()} */}
-          {this.viewmail()}
         </div>
       </div>
     );
