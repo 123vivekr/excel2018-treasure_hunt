@@ -8,8 +8,9 @@ const styles = {
     height: "50px",
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     color: "rgba(255,255,255,0.87)",
-    paddingLeft: "24px",
+    padding: "0px 24px 0px 24px",
     margin: "4px",
     borderRadius: "15px"
   },
@@ -18,7 +19,8 @@ const styles = {
     overflow: "ellipsis"
   },
   timestamp: {
-    fontWeight: 700
+    fontWeight: 700,
+    overflow: "ellipsis"
   }
 };
 
