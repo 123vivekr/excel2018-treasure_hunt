@@ -41,9 +41,8 @@
 
 .expandedtitle {
   color: yellow;
-  overflow: hidden;
   padding: 4px;
-  padding-top: 16px;
+  padding-top: 72px;
 }
 
 .expandedtimestamp {
@@ -52,7 +51,6 @@
 }
 
 .content {
-  flex: 1;
   padding: 4px;
 }
 
