@@ -45,6 +45,8 @@
   margin-top: -37.5vh;
   padding: 20px;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
 .expandedtitle {
   color: yellow;
@@ -57,19 +59,25 @@
   padding: 4px;
   float: right;
 }
+.contentWrapper {
+  flex: 1;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
 #ans {
-  position: absolute;
-  bottom: 20px;
   height: 30px;
   font-size: 20px;
-  left: 50%;
   width: 90%;
   background: rgb(58, 53, 53);
   border: solid 1px rgb(158, 158, 158);
   border-radius: 15px;
   color: white;
-  margin-left: -45%;
   padding-left: 16px;
+  margin-bottom: 8px;
   transition: border 0.1s;
   -webkit-transition: border 0.1s;
 }
