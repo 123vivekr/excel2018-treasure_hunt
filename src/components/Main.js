@@ -35,7 +35,8 @@ class Main extends Component {
             content: "dolor sit amet"
           }
         }
-      ]
+      ],
+      modalContent:''
     };
   }
 
@@ -60,7 +61,10 @@ class Main extends Component {
           title={mail.mailHeader.title}
           timestamp={mail.mailHeader.timestamp}
           onClick={(index) => {
-            this.setState({open:true});
+            this.setState({
+              open:true,
+              modalContent: mail.mailBody.content,
+            });
           }}
           index={this.state.mailList.indexOf(mail)}
         />
@@ -79,10 +83,6 @@ class Main extends Component {
         content={mail.mailBody.content}
       />
     );
-  };
-
-  expandMail = index => {
-    this.setState({open:true})
   };
 
   authenticate = () => {
@@ -118,7 +118,7 @@ class Main extends Component {
             open={this.state.open}
             onClose={this.handlePopupClose}
           >
-            <div>joyal magic here</div>
+            <div style={{color:'white'}}>joyal magic here {this.state.modalContent}</div>
           </Modal>
           {this.challenges()}
           { /* this.authenticate() */}
