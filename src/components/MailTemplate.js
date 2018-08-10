@@ -15,6 +15,7 @@ class MailTemplate extends Component {
         <span className="expandedtimestamp">{timestamp}</span>
         <hr className="fullWidth" />
         <span className="content">{content}</span>
+        <input type="text" id="ans" placeholder="Your answer" />
       </div>
     );
   }

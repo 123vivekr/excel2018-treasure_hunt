@@ -38,28 +38,47 @@
 }
 
 .mailDiv {
-  background-color: "rgba(0;0;0;0.87)";
-  height: 50px;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
+  background-color:rgba(58, 53, 53, 0.87);
+  border-color:white;
   color: rgba(255, 255, 255, 0.87);
-  padding-left: 24px;
-  padding-right: 24px;
-  margin: 4px;
-  border-radius: 5px;
+  height: 400px;
+  width:700px;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  margin-left:-350px;
+  margin-top:-200px;
+  padding: 20px;
 }
 
 .expandedtitle {
   color: yellow;
   padding: 4px;
   padding-top: 72px;
+  font-size: 30px;
+  font-weight:bold;
 }
 
 .expandedtimestamp {
   font-weight: 700;
   padding: 4px;
+  float:right;
+}
+
+#ans{
+  position:absolute;
+  bottom: 20px;
+  height:25px;
+  left:50%;
+  width: 90%;
+  background:rgb(58,53,53);
+  border:solid 3px white;
+  color:white;
+  margin-left:-45%;
+}
+#ans:focus{
+  border-color:yellow;
+  outline:none;
 }
 
 .content {
