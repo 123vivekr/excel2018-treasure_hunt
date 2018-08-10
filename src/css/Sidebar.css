@@ -20,15 +20,22 @@
   align-items: center;
   /* background: url('../assets/sherlock2.jpg'); */
   /* background-color: tomato; */
+  cursor: pointer;
 }
+/* .sherlock:hover {
+  box-shadow: 3px 3px 2px rgb(158, 158, 158);
+} */
 
-.GameOn {
+.GameOn img {
   /* background-color: yellow; */
+  color: white;
   position: absolute;
-  bottom: 0.5em;
+  bottom: 5em;
   left: 0;
   right: 0;
   margin: auto;
   text-align: center;
-  font-size: 30px;
+  height: 17em;
+  width: 80%;
+  background-size: cover;
 }

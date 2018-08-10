@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../css/Sidebar.css";
 import sherlock from "../assets/sherDone.png";
+import treasure from "../assets/treasureChest.jpg";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -10,8 +11,12 @@ class Sidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <div className="sherlock" />
-        <img src={sherlock} />
+        <div className="sherlock">
+          <img src={sherlock} />
+        </div>
+        <div className="GameOn">
+          <img src={treasure} />
+        </div>
       </div>
     );
   }

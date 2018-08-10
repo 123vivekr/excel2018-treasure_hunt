@@ -130,8 +130,8 @@ class Main extends Component {
               content={this.state.modalContent}
             />
           </Modal>
-          {this.challenges()}
-          {/* {this.authenticate()} */}
+          {/* {this.challenges()} */}
+          {this.authenticate()}
         </div>
       </div>
     );
