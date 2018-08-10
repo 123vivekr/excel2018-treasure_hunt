@@ -116,7 +116,7 @@ class Main extends Component {
         <div className="mainbox">
           <Modal
             open={this.state.open}
-            // onClose={this.handlePopupClose}
+            onClose={this.handlePopupClose}
           >
             <div>joyal magic here</div>
           </Modal>
