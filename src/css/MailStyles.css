@@ -61,12 +61,22 @@
 }
 .contentWrapper {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .inputWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+.attachment {
+  padding: 24px;
+  background-size: contain;
+  max-width: 35vw;
+  max-height: 40vh;
+  align-self: center;
 }
 #ans {
   height: 30px;
