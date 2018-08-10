@@ -55,7 +55,12 @@ class Main extends Component {
       );
     });
 
-    return <div id="challengecard">{mails}</div>;
+    return (
+      <div id="challengecard">
+        {/* <div className="userProfile">dc</div> */}
+        {mails}
+      </div>
+    );
   };
 
   viewmail = index => {
