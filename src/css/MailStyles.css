@@ -10,7 +10,6 @@
     #333333,
     #e9d362
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   height: 50px;
   display: flex;
   align-items: center;
@@ -18,54 +17,91 @@
   color: rgba(255, 255, 255, 0.87);
   padding: 0px 24px 0px 24px;
   margin: 4px;
-  border-radius: 2px;
+  border-radius: 15px;
   cursor: pointer;
+  transition: box-shadow 0.2s;
 }
-
 .mailRow:hover {
-  box-shadow: 3px 3px 2px rgb(158, 158, 158);
+  box-shadow: 0px 2px 1px black;
 }
-
 .title {
   color: white;
   font-size: 20px;
   overflow: hidden;
 }
-
 .timestamp {
   font-weight: 700;
   overflow: hidden;
 }
-
 .mailDiv {
-  background-color: "rgba(0;0;0;0.87)";
-  height: 50px;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
+  background-color: rgba(58, 53, 53, 0.87);
+  border-color: white;
   color: rgba(255, 255, 255, 0.87);
-  padding-left: 24px;
-  padding-right: 24px;
-  margin: 4px;
-  border-radius: 5px;
+  height: 75vh;
+  width: 65vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -32.5vw;
+  margin-top: -37.5vh;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
-
 .expandedtitle {
   color: yellow;
   padding: 4px;
-  padding-top: 72px;
+  font-size: 30px;
+  font-weight: bold;
 }
-
 .expandedtimestamp {
   font-weight: 700;
   padding: 4px;
+  float: right;
 }
-
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.attachment {
+  padding: 24px;
+  background-size: contain;
+  max-width: 35vw;
+  max-height: 40vh;
+  align-self: center;
+}
+#ans {
+  height: 30px;
+  font-size: 20px;
+  width: 90%;
+  background: rgb(58, 53, 53);
+  border: solid 1px rgb(158, 158, 158);
+  border-radius: 15px;
+  color: white;
+  padding-left: 16px;
+  margin-bottom: 8px;
+  transition: border 0.1s;
+  -webkit-transition: border 0.1s;
+}
+#ans:focus {
+  border-color: yellow;
+  outline: none;
+}
+#ans:hover {
+  border: solid 2px yellow;
+}
 .content {
   padding: 4px;
 }
-
 .fullWidth {
   width: 100%;
 }
