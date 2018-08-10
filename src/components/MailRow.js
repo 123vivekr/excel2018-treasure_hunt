@@ -10,7 +10,7 @@ class MailRow extends Component {
   render() {
     const { title, timestamp, index, onClick } = this.props;
     return (
-      <div className="mailRow" onClick={onClick(index)}>
+      <div className="mailRow" onClick={() => onClick(index)}>
         <span className="title">{title}</span>
         <span className="timestamp">{timestamp}</span>
       </div>

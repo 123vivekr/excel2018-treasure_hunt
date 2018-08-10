@@ -6,13 +6,13 @@ import Button from "@material-ui/core/Button";
 import GoogleButton from "react-google-button";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
-import Modal from '@material-ui/core/Modal';
+import Modal from "@material-ui/core/Modal";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open:false,
+      open: false,
       authStatus: false,
       name: "",
       email: "",
@@ -35,11 +35,14 @@ class Main extends Component {
             content: "dolor sit amet"
           }
         }
-      ]
+      ],
+      modalContent: "",
+      modalTitle: "",
+      modalTimestamp: ""
     };
   }
 
- handlePopupOpen = () => {
+  handlePopupOpen = () => {
     this.setState({ open: true });
   };
 
@@ -59,8 +62,13 @@ class Main extends Component {
         <MailRow
           title={mail.mailHeader.title}
           timestamp={mail.mailHeader.timestamp}
-          onClick={(index) => {
-            this.setState({open:true});
+          onClick={index => {
+            this.setState({
+              open: true,
+              modalContent: mail.mailBody.content,
+              modalTitle: mail.mailHeader.title,
+              modalTimestamp: mail.mailHeader.timestamp
+            });
           }}
           index={this.state.mailList.indexOf(mail)}
         />
@@ -84,10 +92,6 @@ class Main extends Component {
         content={mail.mailBody.content}
       />
     );
-  };
-
-  expandMail = index => {
-    this.setState({open:true})
   };
 
   authenticate = () => {
@@ -120,14 +124,15 @@ class Main extends Component {
         </div>
         <div className="mainbox">
 
-          <Modal
-            open={this.state.open}
-            // onClose={this.handlePopupClose}
-          >
-            <div>joyal magic here</div>
+          <Modal open={this.state.open} onClose={this.handlePopupClose}>
+            <MailTemplate
+              title={this.state.modalTitle}
+              timestamp={this.state.modalTimestamp}
+              content={this.state.modalContent}
+            />
           </Modal>
           {this.challenges()}
-          { /* this.authenticate() */}
+          {/* this.authenticate() */}
 
         </div>
       </div>
