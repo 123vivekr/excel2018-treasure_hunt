@@ -11,6 +11,7 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
         <div className="sherlock" />
+        <img src={sherlock} />
       </div>
     );
   }
