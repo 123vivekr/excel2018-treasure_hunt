@@ -28,7 +28,32 @@
   bottom: 0.5em;
   left: 0;
   right: 0;
-  margin: auto;
+  /* margin: auto; */
   text-align: center;
   font-size: 30px;
+}
+.loginSidebar {
+  color: white;
+  padding-left: 5px;
+}
+.userDetails {
+  padding-top: 60px;
+}
+#userName {
+  font-size: 30px;
+}
+#userPic {
+  padding-right: 30px;
+}
+.points {
+  font-size: 20px;
+}
+.logo {
+  padding-top: 60px;
+}
+.logout {
+  position: absolute;
+  bottom: 30px;
+  display: inline;
+  align: center;
 }

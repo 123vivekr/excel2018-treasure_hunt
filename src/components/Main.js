@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import "../css/Main.css";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import GoogleButton from "react-google-button";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
 import Modal from "@material-ui/core/Modal";
+
 
 class Main extends Component {
   constructor(props) {
@@ -120,7 +119,7 @@ class Main extends Component {
     return (
       <div className="Login">
         <div className="sidebar">
-          <Sidebar page={"login"} />
+          <Sidebar page={"main"} />
         </div>
         <div className="mainbox">
           <Modal open={this.state.open} onClose={this.handlePopupClose}>
