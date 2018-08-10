@@ -123,7 +123,6 @@ class Main extends Component {
           <Sidebar page={"login"} />
         </div>
         <div className="mainbox">
-
           <Modal open={this.state.open} onClose={this.handlePopupClose}>
             <MailTemplate
               title={this.state.modalTitle}
@@ -132,8 +131,7 @@ class Main extends Component {
             />
           </Modal>
           {this.challenges()}
-          {/* this.authenticate() */}
-
+          {/* {this.authenticate()} */}
         </div>
       </div>
     );
