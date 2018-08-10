@@ -11,10 +11,10 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
         <div className="sherlock">
-          <img src={sherlock} style={{ backgroundSize: "cover" }} />
-          <div className="GameOn" style={{ color: "white", zIndex: 1 }}>
-            The Game is <span style={{ color: "tomato" }}>ON</span>!
-          </div>
+          {/* <img src={sherlock} style={{ backgroundSize: "cover" }} /> */}
+          {/* <div className="GameOn" style={{ color: "white", zIndex: 1 }}> */}
+          {/* The Game is <span style={{ color: "tomato" }}>ON</span>! */}
+          {/* </div> */}
         </div>
       </div>
     );

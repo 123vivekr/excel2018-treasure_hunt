@@ -19,4 +19,5 @@ class MailTemplate extends Component {
     );
   }
 }
+
 export default MailTemplate;

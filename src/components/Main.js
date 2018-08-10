@@ -67,7 +67,12 @@ class Main extends Component {
       );
     });
 
-    return <div id="challengecard">{mails}</div>;
+    return (
+      <div id="challengecard">
+        {/* <div className="userProfile">dc</div> */}
+        {mails}
+      </div>
+    );
   };
 
   viewmail = index => {
@@ -114,6 +119,7 @@ class Main extends Component {
           <Sidebar page={"login"} />
         </div>
         <div className="mainbox">
+
           <Modal
             open={this.state.open}
             // onClose={this.handlePopupClose}
@@ -122,6 +128,7 @@ class Main extends Component {
           </Modal>
           {this.challenges()}
           { /* this.authenticate() */}
+
         </div>
       </div>
     );
