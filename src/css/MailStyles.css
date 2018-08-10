@@ -10,7 +10,6 @@
     #333333,
     #e9d362
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   height: 50px;
   display: flex;
   align-items: center;
@@ -21,70 +20,61 @@
   border-radius: 2px;
   cursor: pointer;
 }
-
 .mailRow:hover {
   box-shadow: 3px 3px 2px rgb(158, 158, 158);
 }
-
 .title {
   color: white;
   font-size: 20px;
   overflow: hidden;
 }
-
 .timestamp {
   font-weight: 700;
   overflow: hidden;
 }
-
 .mailDiv {
-  background-color:rgba(58, 53, 53, 0.87);
-  border-color:white;
+  background-color: rgba(58, 53, 53, 0.87);
+  border-color: white;
   color: rgba(255, 255, 255, 0.87);
-  height: 400px;
-  width:700px;
-  position:absolute;
+  height: 40vh;
+  width: 70vw;
+  position: absolute;
   top: 50%;
   left: 50%;
-  margin-left:-350px;
-  margin-top:-200px;
+  margin-left: -35vw;
+  margin-top: -20vh;
   padding: 20px;
+  border-radius: 15px;
 }
-
 .expandedtitle {
   color: yellow;
   padding: 4px;
-  padding-top: 72px;
   font-size: 30px;
-  font-weight:bold;
+  font-weight: bold;
 }
-
 .expandedtimestamp {
   font-weight: 700;
   padding: 4px;
-  float:right;
+  float: right;
 }
-
-#ans{
-  position:absolute;
+#ans {
+  position: absolute;
   bottom: 20px;
-  height:25px;
-  left:50%;
+  height: 25px;
+  left: 50%;
   width: 90%;
-  background:rgb(58,53,53);
-  border:solid 3px white;
-  color:white;
-  margin-left:-45%;
+  background: rgb(58, 53, 53);
+  border: solid 3px white;
+  color: white;
+  margin-left: -45%;
 }
-#ans:focus{
-  border-color:yellow;
-  outline:none;
+#ans:focus {
+  border-color: yellow;
+  outline: none;
 }
-
 .content {
   padding: 4px;
 }
-
 .fullWidth {
   width: 100%;
 }
