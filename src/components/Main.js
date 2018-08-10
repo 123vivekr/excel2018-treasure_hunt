@@ -21,7 +21,9 @@ class Main extends Component {
             timestamp: "2018-8-16 2:30PM"
           },
           mailBody: {
-            content: "lorem ipsum"
+            content: "lorem ipsum",
+            attachment:
+              "https://avatars1.githubusercontent.com/u/22353313?s=460&v=4"
           }
         },
         {
@@ -30,13 +32,16 @@ class Main extends Component {
             timestamp: "2018-9-1 11:30PM"
           },
           mailBody: {
-            content: "dolor sit amet"
+            content: "dolor sit amet",
+            attachment:
+              "https://avatars0.githubusercontent.com/u/31545426?s=460&v=4"
           }
         }
       ],
       modalContent: "",
       modalTitle: "",
-      modalTimestamp: ""
+      modalTimestamp: "",
+      modalAttachment: ""
     };
   }
 
@@ -65,7 +70,8 @@ class Main extends Component {
               open: true,
               modalContent: mail.mailBody.content,
               modalTitle: mail.mailHeader.title,
-              modalTimestamp: mail.mailHeader.timestamp
+              modalTimestamp: mail.mailHeader.timestamp,
+              modalAttachment: mail.mailBody.attachment
             });
           }}
           index={this.state.mailList.indexOf(mail)}
@@ -81,16 +87,17 @@ class Main extends Component {
     );
   };
 
-  viewmail = index => {
-    const mail = this.state.mailList[index];
-    return (
-      <MailTemplate
-        title={mail.mailHeader.title}
-        timestamp={mail.mailHeader.timestamp}
-        content={mail.mailBody.content}
-      />
-    );
-  };
+  // viewmail = index => {
+  //   const mail = this.state.mailList[index];
+  //   return (
+  //     <MailTemplate
+  //       title={mail.mailHeader.title}
+  //       timestamp={mail.mailHeader.timestamp}
+  //       content={mail.mailBody.content}
+  //       attachment={mail.mailBody.attachment}
+  //     />
+  //   );
+  // };
 
   authenticate = () => {
     return (
@@ -126,6 +133,7 @@ class Main extends Component {
               title={this.state.modalTitle}
               timestamp={this.state.modalTimestamp}
               content={this.state.modalContent}
+              attachment={this.state.modalAttachment}
             />
           </Modal>
           {this.challenges()}
