@@ -8,6 +8,11 @@ class MailTemplate extends Component {
     this.state = {};
   }
 
+  handleSubmit = () => {
+    let answer = document.getElementById("ans").value;
+    //Send the answer to backend
+  };
+
   render() {
     const { title, timestamp, content } = this.props;
     return (
@@ -22,7 +27,11 @@ class MailTemplate extends Component {
         </div>
         <div className="inputWrapper">
           <input type="text" id="ans" placeholder="Your answer" />
-          <Button variant="outlined" color="secondary">
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={this.handleSubmit}
+          >
             Submit
           </Button>
         </div>
