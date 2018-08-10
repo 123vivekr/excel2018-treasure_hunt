@@ -6,11 +6,13 @@ import Button from "@material-ui/core/Button";
 import GoogleButton from "react-google-button";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
+import Modal from '@material-ui/core/Modal';
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      open:false,
       authStatus: false,
       name: "",
       email: "",
@@ -37,6 +39,14 @@ class Main extends Component {
     };
   }
 
+ handlePopupOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handlePopupClose = () => {
+    this.setState({ open: false });
+  };
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
@@ -49,7 +59,9 @@ class Main extends Component {
         <MailRow
           title={mail.mailHeader.title}
           timestamp={mail.mailHeader.timestamp}
-          onClick={this.expandMail}
+          onClick={(index) => {
+            this.setState({open:true});
+          }}
           index={this.state.mailList.indexOf(mail)}
         />
       );
@@ -75,7 +87,7 @@ class Main extends Component {
   };
 
   expandMail = index => {
-    //ASWIN M PRABHU DO ONLY HERE
+    this.setState({open:true})
   };
 
   authenticate = () => {
@@ -107,8 +119,16 @@ class Main extends Component {
           <Sidebar page={"login"} />
         </div>
         <div className="mainbox">
+
+          <Modal
+            open={this.state.open}
+            // onClose={this.handlePopupClose}
+          >
+            <div>joyal magic here</div>
+          </Modal>
           {this.challenges()}
-          {/* {this.authenticate()} */}
+          { /* this.authenticate() */}
+
         </div>
       </div>
     );
