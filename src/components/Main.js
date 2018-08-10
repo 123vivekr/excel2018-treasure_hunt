@@ -6,7 +6,6 @@ import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
 import Modal from "@material-ui/core/Modal";
 
-
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -130,7 +129,7 @@ class Main extends Component {
             />
           </Modal>
           {this.challenges()}
-          {/* {this.authenticate()} */}
+          {/* this.authenticate() */}
         </div>
       </div>
     );
