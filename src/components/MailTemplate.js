@@ -14,7 +14,7 @@ class MailTemplate extends Component {
   };
 
   render() {
-    const { title, timestamp, content, attachment } = this.props;
+    const { title, timestamp, content, attachment, image } = this.props;
     console.log(attachment);
     return (
       <div className="mailDiv">
@@ -25,7 +25,12 @@ class MailTemplate extends Component {
         </div>
         <div className="contentWrapper">
           <span className="content">{content}</span>
-          <img className="attachment" src={attachment} />
+          {attachment ? (
+            <span>
+              <a href={attachment}> Click here to download attachment</a>
+            </span>
+          ) : null}
+          <img className="q_image" src={image} />
         </div>
         <div className="inputWrapper">
           <input type="text" id="ans" placeholder="Your answer" />
