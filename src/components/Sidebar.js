@@ -28,7 +28,9 @@ class Sidebar extends Component {
   main = () => {
     return (
       <div className="loginSidebar">
-        <div className="logo">LOGO</div>
+        <div className="logo">
+          <img src={treasure} style={{ width: "15em" }} />
+        </div>
         <div className="userDetails">
           <div id="userName">
             <span id="userPic">PIC</span>
@@ -39,22 +41,35 @@ class Sidebar extends Component {
           <strong>Level:</strong> 1
         </div>
         <div className="logout">
-          <Button variant="raised" color="secondary" className="howtoPlay">
+          <Button
+            variant="raised"
+            color="primary"
+            style={{
+              fontWeight: "bold"
+            }}
+          >
             How to Play
           </Button>
-          <Button variant="contained">logout</Button>
+          <Button
+            variant="contained"
+            style={{
+              marginTop: "2em",
+              backgroundColor: "white",
+              color: "purple",
+              fontWeight: "bold"
+            }}
+          >
+            logout
+          </Button>
         </div>
       </div>
     );
   };
 
-
   render() {
     return (
       <div className="sidebar">
-       {
-         this.props.page === "main" ? this.main() : this.login()
-       }
+        {this.props.page === "main" ? this.main() : this.login()}
       </div>
     );
   }

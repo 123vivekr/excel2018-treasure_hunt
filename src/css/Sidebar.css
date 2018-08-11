@@ -53,58 +53,40 @@
 }
 
 .loginSidebar {
+  margin-top: 2vh;
   color: white;
-  background-color: teal;
+  /* background-color: teal; */
   padding: 5px;
+  padding-top: 1em;
 }
 .userDetails {
-  padding-top: 60px;
+  padding-top: 1em;
+  margin-top: 2em;
 }
 #userName {
-  font-size: 2vw;
+  font-size: 25px;
 }
 #userPic {
   padding-right: 20px;
 }
 .level {
   padding-top: 10px;
-  font-size: 25px;
+  font-size: 23px;
   /* background-color: yellow; */
   display: flex;
   justify-content: center;
 }
+
 .logo {
-  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .logout {
-  background-color: tomato;
-  margin-top: 4em;
+  margin-top: 15em;
+  /* background-color: tomato; */
   padding: 3px;
   display: flex;
   flex-direction: column;
-}
-.loginSidebar {
-  color: white;
-  padding-left: 5px;
-}
-.userDetails {
-  padding-top: 60px;
-}
-#userName {
-  font-size: 30px;
-}
-#userPic {
-  padding-right: 30px;
-}
-.points {
-  font-size: 20px;
-}
-.logo {
-  padding-top: 60px;
-}
-.logout {
-  position: absolute;
-  bottom: 30px;
-  display: inline;
-  align: center;
 }

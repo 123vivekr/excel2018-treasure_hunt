@@ -125,9 +125,7 @@ class Main extends Component {
     return (
       <div className="Login">
         <div className="sidebar">
-
-          <Sidebar page={"mains"} />
-
+          <Sidebar page={"main"} />
         </div>
         <div className="mainbox">
           <Modal open={this.state.open} onClose={this.handlePopupClose}>
@@ -139,8 +137,8 @@ class Main extends Component {
             />
           </Modal>
 
-          {/* {this.challenges()} */}
-          {this.authenticate()}
+          {this.challenges()}
+          {/* {this.authenticate()} */}
         </div>
       </div>
     );
