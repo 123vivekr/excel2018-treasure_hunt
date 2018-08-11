@@ -12,7 +12,11 @@
 }
 .sherlock {
   /* background-color: tomato; */
+  /* z-index: 1; */
   position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
   height: 25em;
   width: 80%;
   display: flex;
@@ -20,17 +24,64 @@
   align-items: center;
   /* background: url('../assets/sherlock2.jpg'); */
   /* background-color: tomato; */
+  cursor: pointer;
 }
 
-.GameOn {
+.GameOn img {
   /* background-color: yellow; */
+  color: white;
   position: absolute;
-  bottom: 0.5em;
+  bottom: 10.5em;
   left: 0;
   right: 0;
   /* margin: auto; */
   text-align: center;
-  font-size: 30px;
+  height: 18vh;
+  width: 18vw;
+  background-size: cover;
+}
+.GameOn div {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12.5em;
+  margin: auto;
+  text-align: center;
+  font-size: 23px;
+  /* background-color: tomato; */
+}
+
+.loginSidebar {
+  color: white;
+  background-color: teal;
+  padding: 5px;
+}
+.userDetails {
+  padding-top: 60px;
+}
+#userName {
+  font-size: 2vw;
+}
+#userPic {
+  padding-right: 20px;
+}
+.level {
+  padding-top: 10px;
+  font-size: 25px;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  padding-top: 60px;
+}
+.logout {
+  background-color: tomato;
+  margin-top: 4em;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
 }
 .loginSidebar {
   color: white;

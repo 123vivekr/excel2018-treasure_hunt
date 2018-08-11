@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "../css/Sidebar.css";
 import sherlock from "../assets/sherDone.png";
-import Button from '@material-ui/core/Button';
+import treasure from "../assets/treasureNew.png";
+import Button from "@material-ui/core/Button";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -10,35 +11,43 @@ class Sidebar extends Component {
 
   login = () => {
     return (
-      <div className="sherlock">
-        <img src={sherlock} />
+      <div>
+        <div className="sherlock">
+          <img src={sherlock} />
+        </div>
+        <div className="GameOn">
+          <div style={{ color: "white" }}>
+            The Game is <span style={{ color: "tomato" }}>ON</span>!
+          </div>
+          <img src={treasure} />
+        </div>
       </div>
     );
-  } 
-  
+  };
+
   main = () => {
-    return(
+    return (
       <div className="loginSidebar">
-        <div className="logo">
-          LOGO
-        </div>
+        <div className="logo">LOGO</div>
         <div className="userDetails">
-          <p id="userName"> 
-            <span id='userPic'>PIC</span>
+          <div id="userName">
+            <span id="userPic">PIC</span>
             Joyal A Johney
-          </p>
+          </div>
         </div>
-        <div className="points">
-          <p><strong>Points</strong>: 30</p>
+        <div className="level">
+          <strong>Level:</strong> 1
         </div>
         <div className="logout">
-          <Button variant="contained">
-            logout
-          </Button> 
+          <Button variant="raised" color="secondary" className="howtoPlay">
+            How to Play
+          </Button>
+          <Button variant="contained">logout</Button>
         </div>
       </div>
     );
-  }
+  };
+
 
   render() {
     return (
