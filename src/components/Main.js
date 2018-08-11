@@ -22,6 +22,8 @@ class Main extends Component {
           },
           mailBody: {
             content: "lorem ipsum",
+            image:
+              "https://avatars1.githubusercontent.com/u/22353313?s=460&v=4",
             attachment:
               "https://avatars1.githubusercontent.com/u/22353313?s=460&v=4"
           }
@@ -33,6 +35,8 @@ class Main extends Component {
           },
           mailBody: {
             content: "dolor sit amet",
+            image:
+              "https://avatars0.githubusercontent.com/u/31545426?s=460&v=4",
             attachment:
               "https://avatars0.githubusercontent.com/u/31545426?s=460&v=4"
           }
@@ -41,7 +45,8 @@ class Main extends Component {
       modalContent: "",
       modalTitle: "",
       modalTimestamp: "",
-      modalAttachment: ""
+      modalAttachment: "",
+      modalImage: ""
     };
   }
 
@@ -71,7 +76,8 @@ class Main extends Component {
               modalContent: mail.mailBody.content,
               modalTitle: mail.mailHeader.title,
               modalTimestamp: mail.mailHeader.timestamp,
-              modalAttachment: mail.mailBody.attachment
+              modalAttachment: mail.mailBody.attachment,
+              modalImage: mail.mailBody.image
             });
           }}
           index={this.state.mailList.indexOf(mail)}
@@ -134,6 +140,7 @@ class Main extends Component {
               timestamp={this.state.modalTimestamp}
               content={this.state.modalContent}
               attachment={this.state.modalAttachment}
+              image={this.state.modalImage}
             />
           </Modal>
 

@@ -67,13 +67,19 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+a:-webkit-any-link,
+a:visited {
+  color: yellowgreen !important;
+  font-weight: 100;
+  text-decoration: underline;
+}
 .inputWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
-.attachment {
+.q_image {
   padding: 24px;
   background-size: contain;
   max-width: 35vw;
