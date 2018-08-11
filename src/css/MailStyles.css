@@ -37,20 +37,21 @@
   background-color: rgba(58, 53, 53, 0.87);
   border-color: white;
   color: rgba(255, 255, 255, 0.87);
-  height: 75vh;
+  height: 80vh;
   width: 65vw;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   margin-left: -32.5vw;
   margin-top: -37.5vh;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 1em;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  outline: none;
 }
 .expandedtitle {
-  color: yellow;
+  color: rgb(17, 211, 17);
   padding: 4px;
   font-size: 30px;
   font-weight: bold;
@@ -84,11 +85,11 @@
   font-size: 20px;
   width: 90%;
   background: rgb(58, 53, 53);
-  border: solid 1px rgb(158, 158, 158);
+  border: solid 2px rgb(158, 158, 158);
   border-radius: 15px;
   color: white;
   padding-left: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   transition: border 0.1s;
   -webkit-transition: border 0.1s;
 }
