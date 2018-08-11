@@ -48,16 +48,13 @@ class Sidebar extends Component {
     );
   };
 
+
   render() {
     return (
       <div className="sidebar">
-        {/* <div className="sherlock">
-          <img src={sherlock} />
-        </div>
-        <div className="GameOn">
-          <img src={treasure} />
-        </div> */}
-        {this.props.page === "main" ? this.main() : this.login()}
+       {
+         this.props.page === "main" ? this.main() : this.login()
+       }
       </div>
     );
   }
