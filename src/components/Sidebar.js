@@ -67,11 +67,7 @@ class Sidebar extends Component {
   };
 
   render() {
-    return (
-      <div className="sidebar">
-        {this.props.page === "main" ? this.main() : this.login()}
-      </div>
-    );
+    return <div>{this.props.page === "main" ? this.main() : this.login()}</div>;
   }
 }
 

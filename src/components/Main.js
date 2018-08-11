@@ -5,14 +5,14 @@ import GoogleButton from "react-google-button";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
 import Modal from "@material-ui/core/Modal";
-import Icon from '@material-ui/core/Icon';
-import red from '@material-ui/core/colors/red';
+import Icon from "@material-ui/core/Icon";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
+      isMobileSidebarOpen: false,
       authStatus: false,
       name: "",
       email: "",
@@ -129,16 +129,43 @@ class Main extends Component {
     );
   };
 
+  toggleSidebar = () => {
+    this.setState(
+      {
+        isMobileSidebarOpen: !this.state.isMobileSidebarOpen
+      },
+      () => {
+        let sidebar_mobile = document.getElementsByClassName(
+          "sidebar_mobile"
+        )[0];
+        let overlay = document.getElementsByClassName("overlay")[0];
+        if (this.state.isMobileSidebarOpen) {
+          sidebar_mobile.style.left = 0;
+          overlay.style.zIndex = 9;
+          overlay.style.opacity = 0.5;
+        } else {
+          sidebar_mobile.style.left = "-250px";
+          overlay.style.zIndex = -1;
+          overlay.style.opacity = 0.0;
+        }
+      }
+    );
+  };
+
   render() {
     return (
       <div className="Login">
-        <div className="sidebar">
+        <div className="overlay" onClick={this.toggleSidebar} />
+        <div className="sidebar" id="sidebar_wrapper">
+          <Sidebar page={"main"} />
+        </div>
+        <div className="sidebar_mobile">
           <Sidebar page={"main"} />
         </div>
         <div className="mainbox">
-          <Icon className="ham" onClick={() => {
-            document.getElementsByClassName("sidebar")[0].css.display = "block";
-          }}>menu</Icon>
+          <Icon className="ham" onClick={this.toggleSidebar}>
+            menu
+          </Icon>
           <Modal open={this.state.open} onClose={this.handlePopupClose}>
             <MailTemplate
               title={this.state.modalTitle}
