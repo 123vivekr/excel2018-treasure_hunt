@@ -6,6 +6,18 @@
   /* overflow-x: hidden; */
   overflow: hidden;
 }
+.ham{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  color:white;
+}
+@media screen and (max-width: 780px) {
+    .ham{display:block;}
+    .sidebar {display:none;}
+    .Login {grid-template-columns:1fr;}
+}
 
 .mainbox {
   /* background-color: peachpuff; */
