@@ -5,6 +5,8 @@ import GoogleButton from "react-google-button";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
 import Modal from "@material-ui/core/Modal";
+import Icon from '@material-ui/core/Icon';
+import red from '@material-ui/core/colors/red';
 
 class Main extends Component {
   constructor(props) {
@@ -134,6 +136,9 @@ class Main extends Component {
           <Sidebar page={"main"} />
         </div>
         <div className="mainbox">
+          <Icon className="ham" onClick={() => {
+            document.getElementsByClassName("sidebar")[0].css.display = "block";
+          }}>menu</Icon>
           <Modal open={this.state.open} onClose={this.handlePopupClose}>
             <MailTemplate
               title={this.state.modalTitle}

@@ -5,6 +5,7 @@
   "proxy": "http://localhost:8000",
   "dependencies": {
     "@material-ui/core": "^1.4.3",
+    "@material-ui/icons": "^2.0.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-google-button": "^0.5.3",
