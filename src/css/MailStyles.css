@@ -1,15 +1,7 @@
 .mailRow {
-  background: #e9d362; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #333333,
-    #e9d362
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #333333,
-    #e9d362
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #e9d362;
+  background: -webkit-linear-gradient(to left, #333333, #e9d362);
+  background: linear-gradient(to left, #333333, #e9d362);
   height: 50px;
   display: flex;
   align-items: center;
@@ -21,19 +13,23 @@
   cursor: pointer;
   transition: box-shadow 0.2s;
 }
+
 .mailRow:hover {
   box-shadow: 0px 2px 1px black;
 }
+
 .title {
   color: white;
   font-size: 1.25rem;
   overflow: hidden;
   line-height: 1;
 }
+
 .timestamp {
   font-weight: 700;
   overflow: hidden;
 }
+
 .mailDiv {
   background-color: rgba(58, 53, 53, 0.87);
   border-color: white;
@@ -51,35 +47,41 @@
   flex-direction: column;
   outline: none;
 }
+
 .expandedtitle {
   color: rgb(17, 211, 17);
   padding: 4px;
   font-size: 1.875rem;
   font-weight: bold;
 }
+
 .expandedtimestamp {
   font-weight: 700;
   padding: 4px;
   float: right;
 }
+
 .contentWrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 a:-webkit-any-link,
 a:visited {
   color: yellowgreen !important;
   font-weight: 100;
   text-decoration: underline;
 }
+
 .inputWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
+
 .q_image {
   padding: 24px;
   background-size: contain;
@@ -87,6 +89,7 @@ a:visited {
   max-height: 40vh;
   align-self: center;
 }
+
 #ans {
   height: 30px;
   font-size: 1.25rem;
@@ -100,16 +103,20 @@ a:visited {
   transition: border 0.1s;
   -webkit-transition: border 0.1s;
 }
+
 #ans:focus {
   border-color: yellow;
   outline: none;
 }
+
 #ans:hover {
   border: solid 2px yellow;
 }
+
 .content {
   padding: 4px;
 }
+
 .fullWidth {
   width: 100%;
 }
