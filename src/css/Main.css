@@ -6,17 +6,47 @@
   /* overflow-x: hidden; */
   overflow: hidden;
 }
-.ham{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  color:white;
+.ham {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 16px;
+  font-weight: 500;
+  color: white;
 }
-@media screen and (max-width: 780px) {
-    .ham{display:block;}
-    .sidebar {display:none;}
-    .Login {grid-template-columns:1fr;}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: black;
+  opacity: 0;
+  transition: 0.3s;
+}
+.sidebar_mobile {
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  display: flex;
+  z-index: 10;
+  transition: 0.3s;
+}
+@media screen and (max-width: 768px) {
+  .ham {
+    display: block;
+  }
+  .sidebar {
+    display: none;
+  }
+  .Login {
+    grid-template-columns: 1fr;
+  }
 }
 
 .mainbox {
@@ -44,14 +74,12 @@
     #ffffff,
     #abbaab
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
     0 10px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   flex-direction: column;
   position: relative;
 }
-
 #logodiv {
   /* background-color: tomato; */
   flex-basis: 50%;
@@ -60,7 +88,6 @@
   align-items: center;
   z-index: 1;
 }
-
 #logo {
   max-width: 200px;
   max-height: 200px;
@@ -73,7 +100,6 @@
   align-items: center;
   z-index: 1;
 }
-
 #challengecard {
   height: 90%;
   margin-left: 20px;
@@ -86,26 +112,22 @@
   padding: 5px;
   position: relative;
 }
-
 .userProfile {
   /* position: absolute; */
   height: 5em;
   margin-bottom: 10px;
   width: 95%;
   padding: 0px 24px 0px 24px;
-  background: #000046; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #1cb5e0,
-    #000046
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: #000046;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1cb5e0, #000046);
+  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #1cb5e0,
     #000046
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 .design {
   position: absolute;
   height: 100%;
@@ -113,7 +135,6 @@
   background-color: rgb(20, 20, 20);
   z-index: 0;
 }
-
 .design2 {
   -webkit-clip-path: polygon(0 0, 23% 75%, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 23% 75%, 100% 100%, 0% 100%);
@@ -123,13 +144,9 @@
     #313131,
     #000000
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #2b2b2b,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #2b2b2b, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 .design1 {
   -webkit-clip-path: polygon(0 0, 40% 73%, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 40% 73%, 100% 100%, 0% 100%);
