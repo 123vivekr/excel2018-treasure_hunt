@@ -37,7 +37,7 @@
   z-index: 10;
   transition: 0.3s;
 }
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .ham {
     display: block;
   }
@@ -103,7 +103,7 @@
 #challengecard {
   height: 90%;
   margin-left: 20px;
-  width: 75%;
+  width: 100%;
   background-color: #ffffff4f;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;

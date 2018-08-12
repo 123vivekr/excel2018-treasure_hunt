@@ -26,8 +26,9 @@
 }
 .title {
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   overflow: hidden;
+  line-height: 1;
 }
 .timestamp {
   font-weight: 700;
@@ -53,7 +54,7 @@
 .expandedtitle {
   color: rgb(17, 211, 17);
   padding: 4px;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: bold;
 }
 .expandedtimestamp {
@@ -88,10 +89,9 @@ a:visited {
 }
 #ans {
   height: 30px;
-  font-size: 20px;
+  font-size: 1.25rem;
   width: 90%;
   background: rgb(58, 53, 53);
-
   border: solid 2px rgb(158, 158, 158);
   border-radius: 15px;
   color: white;

@@ -1,3 +1,13 @@
+html {
+  font-size: 16px;
+}
+
 .App {
   overflow-x: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
 }
