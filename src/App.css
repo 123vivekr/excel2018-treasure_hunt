@@ -11,3 +11,9 @@ html {
     font-size: 12px;
   }
 }
+
+@media only screen and (max-device-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}

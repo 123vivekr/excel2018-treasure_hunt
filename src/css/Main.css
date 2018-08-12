@@ -37,17 +37,6 @@
   z-index: 10;
   transition: 0.3s;
 }
-@media only screen and (max-width: 768px) {
-  .ham {
-    display: block;
-  }
-  .sidebar {
-    display: none;
-  }
-  .Login {
-    grid-template-columns: 1fr;
-  }
-}
 
 .mainbox {
   /* background-color: peachpuff; */
@@ -161,4 +150,32 @@
     #93291e,
     #ed213a
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@media only screen and (max-width: 768px) {
+  .ham {
+    display: block;
+  }
+  .sidebar {
+    display: none;
+  }
+  .Login {
+    grid-template-columns: 1fr;
+  }
+  #logincard {
+    width: 100%;
+  }
+}
+@media only screen and (max-device-width: 768px) {
+  .ham {
+    display: block;
+  }
+  .sidebar {
+    display: none;
+  }
+  .Login {
+    grid-template-columns: 1fr;
+  }
+  #logincard {
+    width: 100%;
+  }
 }
