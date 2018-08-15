@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import "../css/Main.css";
 import GoogleButton from "react-google-button";
+import GoogleLogin from "react-google-login";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
 import Modal from "@material-ui/core/Modal";
@@ -119,14 +120,36 @@ class Main extends Component {
           />
         </div>
         <div className="btn">
-          <GoogleButton
+          {/* <GoogleButton
             onClick={() => {
               console.log("Google button clicked");
             }}
+          /> */}
+          <GoogleLogin
+            clientId="18982425383-mav7ts5oajpkpt9hkh5lepjstvbposr3.apps.googleusercontent.com"
+            buttonText="Login with google"
+            className="loginBtn"
+            onSuccess={this.responseGoogleSuccess}
+            onFailure={this.responseGoogleFailure}
           />
         </div>
       </div>
     );
+  };
+
+  responseGoogleSuccess = res => {
+    console.log(res);
+    //BACKEND GUYS PLS TAKE NOTE
+    //SEND res.access_token TO THE ENDPOINT YOU MAKE
+    //     //THEN CHECK THIS
+    //     In the responseGoogle(response) {...} callback function, you should get back a standard JWT located at response.hg.id_token
+    // Send this token to your server (preferably as an Authorization header)
+    // Have your server decode the id_token by using a common JWT library such as jwt-simple or by sending a GET request to https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=YOUR_TOKEN_HERE
+    // The returned decoded token should have an hd key equal to the hosted domain you'd like to restrict to.
+  };
+
+  responseGoogleFailure = res => {
+    console.log(res);
   };
 
   toggleSidebar = () => {
