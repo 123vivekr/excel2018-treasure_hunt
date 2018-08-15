@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import "../css/Main.css";
-import GoogleButton from "react-google-button";
 import GoogleLogin from "react-google-login";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
@@ -120,11 +119,6 @@ class Main extends Component {
           />
         </div>
         <div className="btn">
-          {/* <GoogleButton
-            onClick={() => {
-              console.log("Google button clicked");
-            }}
-          /> */}
           <GoogleLogin
             clientId="18982425383-mav7ts5oajpkpt9hkh5lepjstvbposr3.apps.googleusercontent.com"
             buttonText="Login with google"
