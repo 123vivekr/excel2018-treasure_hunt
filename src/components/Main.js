@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import "../css/Main.css";
-import GoogleButton from "react-google-button";
+import GoogleLogin from "react-google-login";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
 import Modal from "@material-ui/core/Modal";
@@ -119,14 +119,28 @@ class Main extends Component {
           />
         </div>
         <div className="btn">
-          <GoogleButton
-            onClick={() => {
-              console.log("Google button clicked");
-            }}
+          <GoogleLogin
+            clientId="515285485076-3dcier9qalkst9pc830p8kskj94k4qgh.apps.googleusercontent.com"
+            buttonText="Login with google"
+            className="loginBtn"
+            onSuccess={this.responseGoogleSuccess}
+            onFailure={this.responseGoogleFailure}
           />
         </div>
       </div>
     );
+  };
+
+  responseGoogleSuccess = res => {
+    console.log(res);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8000/api/social/google-oauth2"); //CHANGE URL IF NEEDED
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.send(JSON.stringify({ access_token: res.access_token }));
+  };
+
+  responseGoogleFailure = res => {
+    console.log(res);
   };
 
   toggleSidebar = () => {
