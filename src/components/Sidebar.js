@@ -32,7 +32,7 @@ class Sidebar extends Component {
               fontWeight: "bold"
             }}
           >
-            How to Play
+            Leaderboard
           </Button>
           {this.props.isLoggedIn ? (
             <Button
