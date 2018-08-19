@@ -13,7 +13,7 @@ class Main extends Component {
     this.state = {
       open: false,
       isMobileSidebarOpen: false,
-      authStatus: false,
+      isLoggedIn: false,
       name: "",
       email: "",
       mailList: [
@@ -50,6 +50,31 @@ class Main extends Component {
       modalAttachment: "",
       modalImage: ""
     };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:8000/api/logout/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({
+          mailList: [
+            {
+              mailHeader: {
+                title: `Level ${data.level}`,
+                timestamp: data.timestamp
+              },
+              mailBody: {
+                content: data.soure_hint,
+                image: data.image,
+                attachment: data.data_url
+              }
+            }
+          ]
+        });
+      });
   }
 
   handlePopupOpen = () => {
@@ -107,6 +132,14 @@ class Main extends Component {
   //   );
   // };
 
+  logout = () => {
+    fetch("http://localhost:8000/api/logout/").then(res => {
+      this.setState({
+        isLoggedIn: false
+      });
+    });
+  };
+
   authenticate = () => {
     return (
       <div id="logincard">
@@ -134,6 +167,17 @@ class Main extends Component {
   responseGoogleSuccess = res => {
     console.log(res);
     var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        let res = xhr.responseText;
+        console.log(res);
+        if (res == "True") {
+          this.setState({
+            isLoggedIn: true
+          });
+        }
+      }
+    };
     xhr.open("POST", "http://localhost:8000/api/social/google-oauth2"); //CHANGE URL IF NEEDED
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send(JSON.stringify({ access_token: res.access_token }));
@@ -171,10 +215,18 @@ class Main extends Component {
       <div className="Login">
         <div className="overlay" onClick={this.toggleSidebar} />
         <div className="sidebar" id="sidebar_wrapper">
-          <Sidebar page={"main"} />
+          <Sidebar
+            page={"main"}
+            logout={this.logout}
+            isLoggedIn={this.state.isLoggedIn}
+          />
         </div>
         <div className="sidebar_mobile">
-          <Sidebar page={"main"} />
+          <Sidebar
+            page={"main"}
+            logout={this.logout}
+            isLoggedIn={this.state.isLoggedIn}
+          />
         </div>
         <div className="mainbox">
           <Icon className="ham" onClick={this.toggleSidebar}>
@@ -189,9 +241,7 @@ class Main extends Component {
               image={this.state.modalImage}
             />
           </Modal>
-
-          {/* {this.challenges()} */}
-          {this.authenticate()}
+          {this.state.isLoggedIn ? this.challenges() : this.authenticate()}
         </div>
       </div>
     );

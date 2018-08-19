@@ -7,23 +7,40 @@ import Button from "@material-ui/core/Button";
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      propic: "",
+      rank: ""
+    };
   }
 
-  login = () => {
-    return (
-      <div>
-        <div className="sherlock">
-          <img src={sherlock} />
-        </div>
-        <div className="GameOn">
-          <div style={{ color: "white" }}>
-            The Game is <span style={{ color: "tomato" }}>ON</span>!
-          </div>
-          <img src={treasure} />
-        </div>
-      </div>
-    );
-  };
+  componentDidMount() {
+    fetch("http://localhost:8000/api/profile/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({
+          firstname: data.first_name,
+          lastname: data.last_name,
+          email: data.email,
+          propic: data.profile
+        });
+      });
+    fetch("http://localhost:8000/api/rank/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({
+          rank: data.rank
+        });
+      });
+  }
 
   main = () => {
     return (
@@ -33,12 +50,15 @@ class Sidebar extends Component {
         </div>
         <div className="userDetails">
           <div id="userName">
-            <span id="userPic">PIC</span>
-            Joyal A Johney
+            <img src={this.state.propic} alt="loading..." className="propic" />
+            <br />
+            <span>
+              {this.state.firstname} {this.state.lastname}
+            </span>
           </div>
         </div>
         <div className="level">
-          <strong>Level:</strong> 1
+          <strong>Rank : {this.state.rank}</strong>
         </div>
         <div className="logout">
           <Button
@@ -48,26 +68,29 @@ class Sidebar extends Component {
               fontWeight: "bold"
             }}
           >
-            How to Play
+            Leaderboard
           </Button>
-          <Button
-            variant="contained"
-            style={{
-              marginTop: "2em",
-              backgroundColor: "white",
-              color: "purple",
-              fontWeight: "bold"
-            }}
-          >
-            logout
-          </Button>
+          {this.props.isLoggedIn ? (
+            <Button
+              variant="contained"
+              style={{
+                marginTop: "2em",
+                backgroundColor: "white",
+                color: "purple",
+                fontWeight: "bold"
+              }}
+              onClick={this.props.logout}
+            >
+              logout
+            </Button>
+          ) : null}
         </div>
       </div>
     );
   };
 
   render() {
-    return <div>{this.props.page === "main" ? this.main() : this.login()}</div>;
+    return <div>{this.main()}</div>;
   }
 }
 
