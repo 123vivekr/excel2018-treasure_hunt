@@ -52,6 +52,31 @@ class Main extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch("http://localhost:8000/api/logout/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({
+          mailList: [
+            {
+              mailHeader: {
+                title: `Level ${data.level}`,
+                timestamp: data.timestamp
+              },
+              mailBody: {
+                content: data.soure_hint,
+                image: data.image,
+                attachment: data.data_url
+              }
+            }
+          ]
+        });
+      });
+  }
+
   handlePopupOpen = () => {
     this.setState({ open: true });
   };
