@@ -34,25 +34,27 @@ class Sidebar extends Component {
           >
             How to Play
           </Button>
-          <Button
-            variant="contained"
-            style={{
-              marginTop: "2em",
-              backgroundColor: "white",
-              color: "purple",
-              fontWeight: "bold"
-            }}
-            onClick={this.props.logout}
-          >
-            logout
-          </Button>
+          {this.props.isLoggedIn ? (
+            <Button
+              variant="contained"
+              style={{
+                marginTop: "2em",
+                backgroundColor: "white",
+                color: "purple",
+                fontWeight: "bold"
+              }}
+              onClick={this.props.logout}
+            >
+              logout
+            </Button>
+          ) : null}
         </div>
       </div>
     );
   };
 
   render() {
-    return <div>{this.props.page === "main" ? this.main() : this.login()}</div>;
+    return <div>{this.main()}</div>;
   }
 }
 

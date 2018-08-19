@@ -190,10 +190,18 @@ class Main extends Component {
       <div className="Login">
         <div className="overlay" onClick={this.toggleSidebar} />
         <div className="sidebar" id="sidebar_wrapper">
-          <Sidebar page={"main"} logout={this.logout} />
+          <Sidebar
+            page={"main"}
+            logout={this.logout}
+            isLoggedIn={this.state.isLoggedIn}
+          />
         </div>
         <div className="sidebar_mobile">
-          <Sidebar page={"main"} />
+          <Sidebar
+            page={"main"}
+            logout={this.logout}
+            isLoggedIn={this.state.isLoggedIn}
+          />
         </div>
         <div className="mainbox">
           <Icon className="ham" onClick={this.toggleSidebar}>
