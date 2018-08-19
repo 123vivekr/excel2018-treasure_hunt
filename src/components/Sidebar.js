@@ -9,22 +9,6 @@ class Sidebar extends Component {
     super(props);
   }
 
-  login = () => {
-    return (
-      <div>
-        <div className="sherlock">
-          <img src={sherlock} />
-        </div>
-        <div className="GameOn">
-          <div style={{ color: "white" }}>
-            The Game is <span style={{ color: "tomato" }}>ON</span>!
-          </div>
-          <img src={treasure} />
-        </div>
-      </div>
-    );
-  };
-
   main = () => {
     return (
       <div className="loginSidebar">
@@ -58,6 +42,7 @@ class Sidebar extends Component {
               color: "purple",
               fontWeight: "bold"
             }}
+            onClick={this.props.logout}
           >
             logout
           </Button>
