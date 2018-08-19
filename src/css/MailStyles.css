@@ -120,3 +120,13 @@ a:visited {
 .fullWidth {
   width: 100%;
 }
+
+.incorrectAnswer {
+  display: none;
+  color: red;
+}
+
+.correctAnswer {
+  display: none;
+  color: green;
+}

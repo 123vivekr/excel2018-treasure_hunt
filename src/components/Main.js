@@ -190,8 +190,8 @@ class Main extends Component {
             />
           </Modal>
 
-          {/* {this.challenges()} */}
-          {this.authenticate()}
+          {this.challenges()}
+          {/* {this.authenticate()} */}
         </div>
       </div>
     );

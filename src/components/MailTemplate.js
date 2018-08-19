@@ -11,6 +11,26 @@ class MailTemplate extends Component {
   handleSubmit = () => {
     let answer = document.getElementById("ans").value;
     //Send the answer to backend
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        let res = xhr.responseText;
+        console.log(JSON.parse(res));
+        if (res.answer == "wrong") {
+          document.getElementsByClassName("incorrectAnswer")[0].style.display =
+            "block";
+        } else if (res.answer == "correct") {
+          document.getElementsByClassName("correctAnswer")[0].style.display =
+            "block";
+          setInterval(() => {
+            window.location.reload();
+          }, 1000); //Display "Answer correct" for at least one second before reloading page to get new question
+        }
+      }
+    };
+    xhr.open("POST", "http://localhost:8000/api/answer"); //CHANGE URL IF NEEDED
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.send(JSON.stringify({ answer: answer }));
   };
 
   render() {
@@ -41,6 +61,8 @@ class MailTemplate extends Component {
           >
             Submit
           </Button>
+          <span className="incorrectAnswer"> Answer is incorrect! </span>
+          <span className="correctAnswer"> Answer is correct! </span>
         </div>
       </div>
     );
