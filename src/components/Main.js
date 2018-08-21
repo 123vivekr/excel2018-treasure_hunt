@@ -61,6 +61,31 @@ class Main extends Component {
     };
   }
 
+  componentDidMount() {
+    let authToken = localStorage.getItem("auth_token");
+    fetch("http://localhost:8000/api/session_check/", {
+      headers: {
+        Authorization: `token ${authToken}`
+      }
+    })
+      .then(res => {
+        return res.text();
+      })
+      .then(data => {
+        if (data == "true") {
+          this.setState(
+            {
+              auth_token: authToken,
+              isLoggedIn: true
+            },
+            () => {
+              this.fetchInfo();
+            }
+          );
+        }
+      });
+  }
+
   fetchInfo = () => {
     fetch("http://localhost:8000/api/ask/", {
       headers: {
