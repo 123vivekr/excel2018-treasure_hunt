@@ -15,7 +15,7 @@ class Main extends Component {
       open: false,
       isMobileSidebarOpen: false,
       isLoggedIn: true,
-      showLeaderboard: true,
+      showLeaderboard: false,
       name: "",
       email: "",
       mailList: [
@@ -146,6 +146,13 @@ class Main extends Component {
     this.setState({ open: false });
   };
 
+  closeLeaderbaord = () => {
+    console.log("HEREHREHRE");
+    this.setState({
+      showLeaderboard: false
+    });
+  };
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
@@ -181,7 +188,12 @@ class Main extends Component {
         </div>
       );
     }
-    return <Leaderboard users={this.state.users} />;
+    return (
+      <Leaderboard
+        users={this.state.users}
+        closeLeaderboard={this.closeLeaderbaord}
+      />
+    );
   };
 
   // viewmail = index => {
