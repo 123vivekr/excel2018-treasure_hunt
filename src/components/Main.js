@@ -4,6 +4,7 @@ import "../css/Main.css";
 import GoogleLogin from "react-google-login";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
+import Leaderboard from "./Leaderboard";
 import Modal from "@material-ui/core/Modal";
 import Icon from "@material-ui/core/Icon";
 
@@ -147,25 +148,7 @@ class Main extends Component {
         </div>
       );
     }
-    return (
-      <table className="table">
-        <tr>
-          <th>Level</th>
-          <th>Name</th>
-        </tr>
-        {this.state.users.map(user => {
-          return (
-            <tr>
-              <td>{user.level}</td>
-              <td>
-                <img src={user.pic} alt="" className="userPic" />
-                {user.name}
-              </td>
-            </tr>
-          );
-        })}
-      </table>
-    );
+    return <Leaderboard users={this.state.users} />;
   };
 
   // viewmail = index => {
