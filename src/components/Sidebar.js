@@ -61,28 +61,31 @@ class Sidebar extends Component {
           <strong>Rank : {this.state.rank}</strong>
         </div>
         <div className="logout">
-          <Button
-            variant="raised"
-            color="primary"
-            style={{
-              fontWeight: "bold"
-            }}
-          >
-            Leaderboard
-          </Button>
           {this.props.isLoggedIn ? (
-            <Button
-              variant="contained"
-              style={{
-                marginTop: "2em",
-                backgroundColor: "white",
-                color: "purple",
-                fontWeight: "bold"
-              }}
-              onClick={this.props.logout}
-            >
-              logout
-            </Button>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <Button
+                variant="raised"
+                color="primary"
+                style={{
+                  fontWeight: "bold"
+                }}
+                onClick={this.props.showLeaderboard}
+              >
+                Leaderboard
+              </Button>
+              <Button
+                variant="contained"
+                style={{
+                  marginTop: "2em",
+                  backgroundColor: "white",
+                  color: "purple",
+                  fontWeight: "bold"
+                }}
+                onClick={this.props.logout}
+              >
+                logout
+              </Button>
+            </div>
           ) : null}
         </div>
       </div>

@@ -13,7 +13,8 @@ class Main extends Component {
     this.state = {
       open: false,
       isMobileSidebarOpen: false,
-      isLoggedIn: false,
+      isLoggedIn: true,
+      showLeaderboard: false,
       name: "",
       email: "",
       mailList: [
@@ -48,7 +49,13 @@ class Main extends Component {
       modalTitle: "",
       modalTimestamp: "",
       modalAttachment: "",
-      modalImage: ""
+      modalImage: "",
+      users: [
+        {
+          name: "aswing",
+          pic: "https://avatars0.githubusercontent.com/u/22353313?s=400&v=4"
+        }
+      ]
     };
   }
 
@@ -112,11 +119,32 @@ class Main extends Component {
       );
     });
 
+    if (!this.state.showLeaderboard) {
+      return (
+        <div id="challengecard">
+          {/* <div className="userProfile">dc</div> */}
+          {mails}
+        </div>
+      );
+    }
     return (
-      <div id="challengecard">
-        {/* <div className="userProfile">dc</div> */}
-        {mails}
-      </div>
+      <table className="table">
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+        </tr>
+        {this.state.users.map((user, rank) => {
+          return (
+            <tr>
+              <td>{rank + 1}</td>
+              <td>
+                <img src={user.pic} alt="" className="userPic" />
+                {user.name}
+              </td>
+            </tr>
+          );
+        })}
+      </table>
     );
   };
 
@@ -134,9 +162,21 @@ class Main extends Component {
 
   logout = () => {
     fetch("http://localhost:8000/api/logout/").then(res => {
-      this.setState({
-        isLoggedIn: false
-      });
+      this.setState(
+        {
+          isLoggedIn: false
+        },
+        () => {
+          window.location.reload();
+        }
+      );
+    });
+  };
+
+  showLeaderboard = () => {
+    console.log("HERE");
+    this.setState({
+      showLeaderboard: true
     });
   };
 
@@ -218,6 +258,7 @@ class Main extends Component {
           <Sidebar
             page={"main"}
             logout={this.logout}
+            showLeaderboard={this.showLeaderboard}
             isLoggedIn={this.state.isLoggedIn}
           />
         </div>
@@ -226,6 +267,7 @@ class Main extends Component {
             page={"main"}
             logout={this.logout}
             isLoggedIn={this.state.isLoggedIn}
+            showLeaderboard={this.showLeaderboard}
           />
         </div>
         <div className="mainbox">
