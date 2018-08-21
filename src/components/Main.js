@@ -179,7 +179,6 @@ class Main extends Component {
   };
 
   showLeaderboard = () => {
-    console.log("HERE");
     this.setState({
       showLeaderboard: true
     });
