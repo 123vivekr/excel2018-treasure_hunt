@@ -61,7 +61,7 @@ class Main extends Component {
     };
   }
 
-  componentDidMount() {
+  fetchInfo = () => {
     fetch("http://localhost:8000/api/ask/")
       .then(res => {
         return res.json();
@@ -105,7 +105,7 @@ class Main extends Component {
         }
         this.setState({ users: leaderboard });
       });
-  }
+  };
 
   handlePopupOpen = () => {
     this.setState({ open: true });
@@ -210,16 +210,19 @@ class Main extends Component {
   };
 
   responseGoogleSuccess = res => {
-    console.log(res.accessToken);
+    let main = this;
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        let res = xhr.responseText;
-        if (res == "True") {
-          this.setState({
+      let res = xhr.responseText;
+      if (res && JSON.parse(res).login) {
+        main.setState(
+          {
             isLoggedIn: true
-          });
-        }
+          },
+          () => {
+            main.fetchInfo();
+          }
+        );
       }
     };
     xhr.open("POST", "http://localhost:8000/api/social/google-oauth2/"); //CHANGE URL IF NEEDED
