@@ -62,6 +62,31 @@ class Main extends Component {
   }
 
   fetchInfo = () => {
+    // var xhr = new XMLHttpRequest();
+    // xhr.onreadystatechange = function() {
+    //   console.log(xhr.responseText);
+    //   if (xhr.readyState == 4 && xhr.status == 200) {
+    //     let data = JSON.parse(xhr.responseText);
+    //     console.log(data);
+    //     this.setState({
+    //       mailList: [
+    //         {
+    //           mailHeader: {
+    //             title: `Level ${data.level}`,
+    //             timestamp: data.timestamp
+    //           },
+    //           mailBody: {
+    //             content: data.soure_hint,
+    //             image: data.image,
+    //             attachment: data.data_url
+    //           }
+    //         }
+    //       ]
+    //     });
+    //   }
+    // };
+    // xhr.open("GET", "http://localhost:8000/api/ask/"); //CHANGE URL IF NEEDED
+    // xhr.send();
     fetch("http://localhost:8000/api/ask/")
       .then(res => {
         return res.json();
@@ -94,13 +119,13 @@ class Main extends Component {
         let leaderboard = [],
           user = {};
         if (!data.detail) {
-          data.forEach(e => {
+          data.leaderboard.forEach(e => {
             user = {
               name: e.name,
               pic: e.profile,
               level: e.level
             };
-            leaderboard.append(user);
+            leaderboard.push(user);
           });
         }
         this.setState({ users: leaderboard });
