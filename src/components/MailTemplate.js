@@ -28,8 +28,9 @@ class MailTemplate extends Component {
         }
       }
     };
-    xhr.open("POST", "http://localhost:8000/api/answer"); //CHANGE URL IF NEEDED
+    xhr.open("POST", "http://localhost:8000/api/answer/"); //CHANGE URL IF NEEDED
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.setRequestHeader("Authorization", `token ${this.props.authToken}`);
     xhr.send(JSON.stringify({ answer: answer }));
   };
 

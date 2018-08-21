@@ -62,32 +62,11 @@ class Main extends Component {
   }
 
   fetchInfo = () => {
-    // var xhr = new XMLHttpRequest();
-    // xhr.onreadystatechange = function() {
-    //   console.log(xhr.responseText);
-    //   if (xhr.readyState == 4 && xhr.status == 200) {
-    //     let data = JSON.parse(xhr.responseText);
-    //     console.log(data);
-    //     this.setState({
-    //       mailList: [
-    //         {
-    //           mailHeader: {
-    //             title: `Level ${data.level}`,
-    //             timestamp: data.timestamp
-    //           },
-    //           mailBody: {
-    //             content: data.soure_hint,
-    //             image: data.image,
-    //             attachment: data.data_url
-    //           }
-    //         }
-    //       ]
-    //     });
-    //   }
-    // };
-    // xhr.open("GET", "http://localhost:8000/api/ask/"); //CHANGE URL IF NEEDED
-    // xhr.send();
-    fetch("http://localhost:8000/api/ask/")
+    fetch("http://localhost:8000/api/ask/", {
+      headers: {
+        Authorization: `token ${this.state.auth_token}`
+      }
+    })
       .then(res => {
         return res.json();
       })
@@ -238,12 +217,15 @@ class Main extends Component {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       let res = xhr.responseText;
+      console.log(res);
       if (res && JSON.parse(res).login) {
         main.setState(
           {
-            isLoggedIn: true
+            isLoggedIn: true,
+            auth_token: JSON.parse(res).token
           },
           () => {
+            localStorage.setItem("auth_token", main.state.auth_token);
             main.fetchInfo();
           }
         );
@@ -291,6 +273,7 @@ class Main extends Component {
             logout={this.logout}
             showLeaderboard={this.showLeaderboard}
             isLoggedIn={this.state.isLoggedIn}
+            authToken={this.state.auth_token}
           />
         </div>
         <div className="sidebar_mobile">
@@ -299,6 +282,7 @@ class Main extends Component {
             logout={this.logout}
             isLoggedIn={this.state.isLoggedIn}
             showLeaderboard={this.showLeaderboard}
+            authToken={this.state.auth_token}
           />
         </div>
         <div className="mainbox">
@@ -312,6 +296,7 @@ class Main extends Component {
               content={this.state.modalContent}
               attachment={this.state.modalAttachment}
               image={this.state.modalImage}
+              authToken={this.state.auth_token}
             />
           </Modal>
           {this.state.isLoggedIn ? this.challenges() : this.authenticate()}
