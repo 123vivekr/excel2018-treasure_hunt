@@ -4,6 +4,7 @@ import "../css/Main.css";
 import GoogleLogin from "react-google-login";
 import MailRow from "./MailRow";
 import MailTemplate from "./MailTemplate";
+import Leaderboard from "./Leaderboard";
 import Modal from "@material-ui/core/Modal";
 import Icon from "@material-ui/core/Icon";
 
@@ -14,6 +15,7 @@ class Main extends Component {
       open: false,
       isMobileSidebarOpen: false,
       isLoggedIn: false,
+      showLeaderboard: false,
       name: "",
       email: "",
       mailList: [
@@ -48,12 +50,19 @@ class Main extends Component {
       modalTitle: "",
       modalTimestamp: "",
       modalAttachment: "",
-      modalImage: ""
+      modalImage: "",
+      users: [
+        {
+          name: "",
+          pic: "",
+          level: ""
+        }
+      ]
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/logout/")
+    fetch("http://localhost:8000/api/ask/")
       .then(res => {
         return res.json();
       })
@@ -74,6 +83,25 @@ class Main extends Component {
             }
           ]
         });
+      });
+
+    fetch("http://localhost:8000/api/leaderboard/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        let leaderboard = [],
+          user = {};
+        data.forEach(e => {
+          user = {
+            name: e.name,
+            pic: e.profile,
+            level: e.level
+          };
+          leaderboard.append(user);
+        });
+        this.setState({ users: leaderboard });
       });
   }
 
@@ -112,12 +140,15 @@ class Main extends Component {
       );
     });
 
-    return (
-      <div id="challengecard">
-        {/* <div className="userProfile">dc</div> */}
-        {mails}
-      </div>
-    );
+    if (!this.state.showLeaderboard) {
+      return (
+        <div id="challengecard">
+          {/* <div className="userProfile">dc</div> */}
+          {mails}
+        </div>
+      );
+    }
+    return <Leaderboard users={this.state.users} />;
   };
 
   // viewmail = index => {
@@ -134,9 +165,21 @@ class Main extends Component {
 
   logout = () => {
     fetch("http://localhost:8000/api/logout/").then(res => {
-      this.setState({
-        isLoggedIn: false
-      });
+      this.setState(
+        {
+          isLoggedIn: false
+        },
+        () => {
+          window.location.reload();
+        }
+      );
+    });
+  };
+
+  showLeaderboard = () => {
+    console.log("HERE");
+    this.setState({
+      showLeaderboard: true
     });
   };
 
@@ -218,6 +261,7 @@ class Main extends Component {
           <Sidebar
             page={"main"}
             logout={this.logout}
+            showLeaderboard={this.showLeaderboard}
             isLoggedIn={this.state.isLoggedIn}
           />
         </div>
@@ -226,6 +270,7 @@ class Main extends Component {
             page={"main"}
             logout={this.logout}
             isLoggedIn={this.state.isLoggedIn}
+            showLeaderboard={this.showLeaderboard}
           />
         </div>
         <div className="mainbox">

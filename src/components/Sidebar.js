@@ -48,42 +48,55 @@ class Sidebar extends Component {
         <div className="logo">
           <img src={treasure} style={{ width: "15em" }} />
         </div>
-        <div className="userDetails">
-          <div id="userName">
-            <img src={this.state.propic} alt="loading..." className="propic" />
-            <br />
-            <span>
-              {this.state.firstname} {this.state.lastname}
-            </span>
+
+        {this.props.isLoggedIn ? (
+          <div>
+            <div className="userDetails">
+              <div id="userName">
+                <img
+                  src={this.state.propic}
+                  alt="loading..."
+                  className="propic"
+                />
+                <br />
+                <span>
+                  {this.state.firstname} {this.state.lastname}
+                </span>
+              </div>
+            </div>
+            <div className="level">
+              <strong>Rank : {this.state.rank}</strong>
+            </div>
           </div>
-        </div>
-        <div className="level">
-          <strong>Rank : {this.state.rank}</strong>
-        </div>
+        ) : null}
+
         <div className="logout">
-          <Button
-            variant="raised"
-            color="primary"
-            style={{
-              fontWeight: "bold"
-            }}
-          >
-            Leaderboard
-          </Button>
-          {this.props.isLoggedIn ? (
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <Button
-              variant="contained"
+              variant="raised"
+              color="primary"
               style={{
-                marginTop: "2em",
-                backgroundColor: "white",
-                color: "purple",
                 fontWeight: "bold"
               }}
-              onClick={this.props.logout}
+              onClick={this.props.showLeaderboard}
             >
-              logout
+              Leaderboard
             </Button>
-          ) : null}
+            {this.props.isLoggedIn ? (
+              <Button
+                variant="contained"
+                style={{
+                  marginTop: "2em",
+                  backgroundColor: "white",
+                  color: "purple",
+                  fontWeight: "bold"
+                }}
+                onClick={this.props.logout}
+              >
+                logout
+              </Button>
+            ) : null}
+          </div>
         </div>
       </div>
     );
