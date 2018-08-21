@@ -16,30 +16,39 @@ class Sidebar extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("http://localhost:8000/api/profile/")
-      .then(res => {
-        return res.json();
+  componentDidUpdate(prevProps) {
+    if (prevProps.authToken !== this.props.authToken) {
+      fetch("http://localhost:8000/api/profile/", {
+        headers: {
+          Authorization: `token ${this.props.authToken}`
+        }
       })
-      .then(data => {
-        console.log(data);
-        this.setState({
-          firstname: data.first_name,
-          lastname: data.last_name,
-          email: data.email,
-          propic: data.profile
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+          console.log(data);
+          this.setState({
+            firstname: data.first_name,
+            lastname: data.last_name,
+            email: data.email,
+            propic: data.profile
+          });
         });
-      });
-    fetch("http://localhost:8000/api/rank/")
-      .then(res => {
-        return res.json();
+      fetch("http://localhost:8000/api/rank/", {
+        headers: {
+          Authorization: `token ${this.props.authToken}`
+        }
       })
-      .then(data => {
-        console.log(data);
-        this.setState({
-          rank: data.rank
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+          this.setState({
+            rank: data.rank
+          });
         });
-      });
+    }
   }
 
   main = () => {

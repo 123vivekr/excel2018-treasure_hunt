@@ -15,7 +15,7 @@ class Main extends Component {
       open: false,
       isMobileSidebarOpen: false,
       isLoggedIn: true,
-      showLeaderboard: true,
+      showLeaderboard: false,
       name: "",
       email: "",
       mailList: [
@@ -62,7 +62,38 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/ask/")
+    let authToken = localStorage.getItem("auth_token");
+    if (authToken) {
+      fetch("http://localhost:8000/api/session_check/", {
+        headers: {
+          Authorization: `token ${authToken}`
+        }
+      })
+        .then(res => {
+          return res.text();
+        })
+        .then(data => {
+          if (data == "true") {
+            this.setState(
+              {
+                auth_token: authToken,
+                isLoggedIn: true
+              },
+              () => {
+                this.fetchInfo();
+              }
+            );
+          }
+        });
+    }
+  }
+
+  fetchInfo = () => {
+    fetch("http://localhost:8000/api/ask/", {
+      headers: {
+        Authorization: `token ${this.state.auth_token}`
+      }
+    })
       .then(res => {
         return res.json();
       })
@@ -93,17 +124,19 @@ class Main extends Component {
         console.log(data);
         let leaderboard = [],
           user = {};
-        data.forEach(e => {
-          user = {
-            name: e.name,
-            pic: e.profile,
-            level: e.level
-          };
-          leaderboard.append(user);
-        });
+        if (!data.detail) {
+          data.leaderboard.forEach(e => {
+            user = {
+              name: e.name,
+              pic: e.profile,
+              level: e.level
+            };
+            leaderboard.push(user);
+          });
+        }
         this.setState({ users: leaderboard });
       });
-  }
+  };
 
   handlePopupOpen = () => {
     this.setState({ open: true });
@@ -111,6 +144,13 @@ class Main extends Component {
 
   handlePopupClose = () => {
     this.setState({ open: false });
+  };
+
+  closeLeaderbaord = () => {
+    console.log("HEREHREHRE");
+    this.setState({
+      showLeaderboard: false
+    });
   };
 
   handleChange = name => event => {
@@ -148,7 +188,12 @@ class Main extends Component {
         </div>
       );
     }
-    return <Leaderboard users={this.state.users} />;
+    return (
+      <Leaderboard
+        users={this.state.users}
+        closeLeaderboard={this.closeLeaderbaord}
+      />
+    );
   };
 
   // viewmail = index => {
@@ -170,6 +215,7 @@ class Main extends Component {
           isLoggedIn: false
         },
         () => {
+          localStorage.clear();
           window.location.reload();
         }
       );
@@ -177,7 +223,6 @@ class Main extends Component {
   };
 
   showLeaderboard = () => {
-    console.log("HERE");
     this.setState({
       showLeaderboard: true
     });
@@ -208,22 +253,27 @@ class Main extends Component {
   };
 
   responseGoogleSuccess = res => {
-    console.log(res);
+    let main = this;
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        let res = xhr.responseText;
-        console.log(res);
-        if (res == "True") {
-          this.setState({
-            isLoggedIn: true
-          });
-        }
+      let res = xhr.responseText;
+      console.log(res);
+      if (res && JSON.parse(res).login) {
+        main.setState(
+          {
+            isLoggedIn: true,
+            auth_token: JSON.parse(res).token
+          },
+          () => {
+            localStorage.setItem("auth_token", main.state.auth_token);
+            main.fetchInfo();
+          }
+        );
       }
     };
-    xhr.open("POST", "http://localhost:8000/api/social/google-oauth2"); //CHANGE URL IF NEEDED
+    xhr.open("POST", "http://localhost:8000/api/social/google-oauth2/"); //CHANGE URL IF NEEDED
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.send(JSON.stringify({ access_token: res.access_token }));
+    xhr.send(JSON.stringify({ access_token: res.accessToken }));
   };
 
   responseGoogleFailure = res => {
@@ -263,6 +313,7 @@ class Main extends Component {
             logout={this.logout}
             showLeaderboard={this.showLeaderboard}
             isLoggedIn={this.state.isLoggedIn}
+            authToken={this.state.auth_token}
           />
         </div>
         <div className="sidebar_mobile">
@@ -271,6 +322,7 @@ class Main extends Component {
             logout={this.logout}
             isLoggedIn={this.state.isLoggedIn}
             showLeaderboard={this.showLeaderboard}
+            authToken={this.state.auth_token}
           />
         </div>
         <div className="mainbox">
@@ -284,6 +336,7 @@ class Main extends Component {
               content={this.state.modalContent}
               attachment={this.state.modalAttachment}
               image={this.state.modalImage}
+              authToken={this.state.auth_token}
             />
           </Modal>
           {this.state.isLoggedIn ? this.challenges() : this.authenticate()}
