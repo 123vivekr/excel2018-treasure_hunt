@@ -63,27 +63,29 @@ class Main extends Component {
 
   componentDidMount() {
     let authToken = localStorage.getItem("auth_token");
-    fetch("http://localhost:8000/api/session_check/", {
-      headers: {
-        Authorization: `token ${authToken}`
-      }
-    })
-      .then(res => {
-        return res.text();
-      })
-      .then(data => {
-        if (data == "true") {
-          this.setState(
-            {
-              auth_token: authToken,
-              isLoggedIn: true
-            },
-            () => {
-              this.fetchInfo();
-            }
-          );
+    if (authToken) {
+      fetch("http://localhost:8000/api/session_check/", {
+        headers: {
+          Authorization: `token ${authToken}`
         }
-      });
+      })
+        .then(res => {
+          return res.text();
+        })
+        .then(data => {
+          if (data == "true") {
+            this.setState(
+              {
+                auth_token: authToken,
+                isLoggedIn: true
+              },
+              () => {
+                this.fetchInfo();
+              }
+            );
+          }
+        });
+    }
   }
 
   fetchInfo = () => {
@@ -201,6 +203,7 @@ class Main extends Component {
           isLoggedIn: false
         },
         () => {
+          localStorage.clear();
           window.location.reload();
         }
       );
