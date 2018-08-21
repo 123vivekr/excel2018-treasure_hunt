@@ -14,7 +14,10 @@ class Leaderboard extends Component {
     this.state = {
       isMobileSidebarOpen: true,
       users : [
-        "aswing","vivek","joyal","prince"
+        {
+          name: "aswing",
+          pic: "https://avatars0.githubusercontent.com/u/22353313?s=400&v=4"
+        }
       ]
     };
   }
@@ -70,7 +73,7 @@ class Leaderboard extends Component {
               return (
                 <tr>
                   <td>{rank+1}</td>
-                  <td>{user}</td> 
+                  <td><img src={user.pic} alt="" className="userPic"/>{user.name}</td> 
                 </tr>
               )
             } ) }
