@@ -93,14 +93,16 @@ class Main extends Component {
         console.log(data);
         let leaderboard = [],
           user = {};
-        data.forEach(e => {
-          user = {
-            name: e.name,
-            pic: e.profile,
-            level: e.level
-          };
-          leaderboard.append(user);
-        });
+        if (!data.detail) {
+          data.forEach(e => {
+            user = {
+              name: e.name,
+              pic: e.profile,
+              level: e.level
+            };
+            leaderboard.append(user);
+          });
+        }
         this.setState({ users: leaderboard });
       });
   }
@@ -208,12 +210,11 @@ class Main extends Component {
   };
 
   responseGoogleSuccess = res => {
-    console.log(res);
+    console.log(res.accessToken);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 200) {
         let res = xhr.responseText;
-        console.log(res);
         if (res == "True") {
           this.setState({
             isLoggedIn: true
@@ -221,9 +222,9 @@ class Main extends Component {
         }
       }
     };
-    xhr.open("POST", "http://localhost:8000/api/social/google-oauth2"); //CHANGE URL IF NEEDED
+    xhr.open("POST", "http://localhost:8000/api/social/google-oauth2/"); //CHANGE URL IF NEEDED
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.send(JSON.stringify({ access_token: res.access_token }));
+    xhr.send(JSON.stringify({ access_token: res.accessToken }));
   };
 
   responseGoogleFailure = res => {
