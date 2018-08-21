@@ -14,7 +14,7 @@ class Main extends Component {
     this.state = {
       open: false,
       isMobileSidebarOpen: false,
-      isLoggedIn: true,
+      isLoggedIn: false,
       showLeaderboard: false,
       name: "",
       email: "",
