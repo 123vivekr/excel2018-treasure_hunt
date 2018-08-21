@@ -1,9 +1,16 @@
-.table {
+.tableDiv{
   width: 90%;
   height: 90%;
   background: black;
   opacity: 0.87;
   border-radius: 0.2em;
+  text-align: right;
+  padding: 5px;
+}
+.table{
+  width: 90%;
+  height: 90%;
+  text-align: center;
 }
 .table tr {
   display: grid;
@@ -27,4 +34,8 @@
   max-height: 30px;
   max-width: 30px;
   margin-right: 15px;
+}
+.closeLeader{
+  font-weight: 500;
+  color: white;
 }
