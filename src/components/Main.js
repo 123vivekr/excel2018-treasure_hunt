@@ -14,7 +14,7 @@ class Main extends Component {
     this.state = {
       open: false,
       isMobileSidebarOpen: false,
-      isLoggedIn: true,
+      isLoggedIn: false,
       showLeaderboard: false,
       name: "",
       email: "",
@@ -147,7 +147,6 @@ class Main extends Component {
   };
 
   closeLeaderbaord = () => {
-    console.log("HEREHREHRE");
     this.setState({
       showLeaderboard: false
     });
