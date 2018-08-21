@@ -52,15 +52,16 @@ class Main extends Component {
       modalImage: "",
       users: [
         {
-          name: "aswing",
-          pic: "https://avatars0.githubusercontent.com/u/22353313?s=400&v=4"
+          name: "",
+          pic: "",
+          level: ""
         }
       ]
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/logout/")
+    fetch("http://localhost:8000/api/ask/")
       .then(res => {
         return res.json();
       })
@@ -81,6 +82,25 @@ class Main extends Component {
             }
           ]
         });
+      });
+
+    fetch("http://localhost:8000/api/leaderboard/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        let leaderboard = [],
+          user = {};
+        data.forEach(e => {
+          user = {
+            name: e.name,
+            pic: e.profile,
+            level: e.level
+          };
+          leaderboard.append(user);
+        });
+        this.setState({ users: leaderboard });
       });
   }
 
@@ -130,13 +150,13 @@ class Main extends Component {
     return (
       <table className="table">
         <tr>
-          <th>Rank</th>
+          <th>Level</th>
           <th>Name</th>
         </tr>
-        {this.state.users.map((user, rank) => {
+        {this.state.users.map(user => {
           return (
             <tr>
-              <td>{rank + 1}</td>
+              <td>{user.level}</td>
               <td>
                 <img src={user.pic} alt="" className="userPic" />
                 {user.name}
