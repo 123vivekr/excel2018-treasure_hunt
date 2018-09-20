@@ -49,7 +49,7 @@
 }
 
 .expandedtitle {
-  color: rgb(17, 211, 17);
+  color: orange;
   padding: 4px;
   font-size: 1.875rem;
   font-weight: bold;
@@ -71,7 +71,7 @@
 a:-webkit-any-link,
 a:visited {
   color: yellowgreen !important;
-  font-weight: 100;
+  font-weight: 600;
   text-decoration: underline;
 }
 
