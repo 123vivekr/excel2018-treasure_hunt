@@ -86,6 +86,26 @@ class Main extends Component {
           }
         });
     }
+    fetch("http://localhost:8000/api/leaderboard/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        let leaderboard = [],
+          user = {};
+        if (!data.detail) {
+          data.leaderboard.forEach(e => {
+            user = {
+              name: e.name,
+              pic: e.profile,
+              level: e.level
+            };
+            leaderboard.push(user);
+          });
+        }
+        this.setState({ users: leaderboard });
+      });
   }
 
   fetchInfo = () => {
@@ -228,7 +248,7 @@ class Main extends Component {
   };
 
   authenticate = () => {
-    return (
+    const auth = (
       <div id="logincard">
         <div className="design1 design" />
         <div className="design2 design" />
@@ -248,6 +268,15 @@ class Main extends Component {
           />
         </div>
       </div>
+    );
+    if (!this.state.showLeaderboard) {
+      return auth;
+    }
+    return (
+      <Leaderboard
+        users={this.state.users}
+        closeLeaderboard={this.closeLeaderbaord}
+      />
     );
   };
 
